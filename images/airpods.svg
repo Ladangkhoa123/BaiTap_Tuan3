@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" role="img" aria-labelledby="title">
+  <title id="title">Tai nghe không dây và hộp sạc màu trắng</title>
+  <defs>
+    <linearGradient id="case" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#fff"/>
+      <stop offset=".55" stop-color="#dfe3eb"/>
+      <stop offset="1" stop-color="#929aa9"/>
+    </linearGradient>
+    <linearGradient id="bud" x1="0" x2="1">
+      <stop stop-color="#fff"/>
+      <stop offset=".55" stop-color="#e4e7ed"/>
+      <stop offset="1" stop-color="#9ba3b1"/>
+    </linearGradient>
+    <filter id="shadow" x="-.4" y="-.5" width="1.8" height="2">
+      <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#000" flood-opacity=".65"/>
+    </filter>
+  </defs>
+  <ellipse cx="120" cy="145" rx="76" ry="9" fill="#02040a" opacity=".7"/>
+  <g filter="url(#shadow)">
+    <path d="M46 91c0-21 15-37 36-37h76c21 0 36 16 36 37v31c0 17-12 28-29 28H75c-17 0-29-11-29-28z" fill="url(#case)" stroke="#fff" stroke-width="2"/>
+    <path d="M48 94h144" stroke="#a5adbb" stroke-width="3"/>
+    <path d="M102 115a18 9 0 0 1 36 0" fill="none" stroke="#a5adbb" stroke-width="2"/>
+    <path d="M76 60V27c0-10 8-18 18-18s18 8 18 18v34c0 10-8 18-18 18S76 71 76 60z" fill="url(#bud)" stroke="#fff" stroke-width="2"/>
+    <path d="M91 76v26c0 7-5 12-11 12s-11-5-11-12V77" fill="url(#bud)" stroke="#fff" stroke-width="2"/>
+    <path d="M135 50V21c0-10 8-18 18-18s18 8 18 18v31c0 10-8 18-18 18s-18-8-18-18z" fill="url(#bud)" stroke="#fff" stroke-width="2"/>
+    <path d="M150 66v30c0 7-5 12-11 12s-11-5-11-12V67" fill="url(#bud)" stroke="#fff" stroke-width="2"/>
+    <circle cx="120" cy="132" r="3" fill="#fff" opacity=".8"/>
+  </g>
+</svg>

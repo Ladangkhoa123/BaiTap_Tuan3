@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" role="img" aria-labelledby="title">
+  <title id="title">Máy tính bảng màu tím</title>
+  <defs>
+    <linearGradient id="edge" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#e1e3eb"/>
+      <stop offset=".48" stop-color="#777f91"/>
+      <stop offset="1" stop-color="#252b38"/>
+    </linearGradient>
+    <linearGradient id="display" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#113451"/>
+      <stop offset=".48" stop-color="#355db0"/>
+      <stop offset="1" stop-color="#8b3aa8"/>
+    </linearGradient>
+    <filter id="shadow" x="-.4" y="-.4" width="1.8" height="1.8">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity=".55"/>
+    </filter>
+  </defs>
+  <ellipse cx="120" cy="151" rx="81" ry="8" fill="#02040a" opacity=".7"/>
+  <g filter="url(#shadow)" transform="rotate(-7 120 84)">
+    <rect x="65" y="14" width="110" height="139" rx="15" fill="url(#edge)" stroke="#e3e6ec" stroke-width="2"/>
+    <rect x="71" y="20" width="98" height="127" rx="10" fill="url(#display)"/>
+    <path d="M72 115c25-40 43-8 96-62v87H72z" fill="#54c9ed" opacity=".72"/>
+    <path d="M72 131c27-29 51-4 97-41v57H72z" fill="#b76af0" opacity=".75"/>
+    <circle cx="120" cy="26" r="2" fill="#11131c"/>
+    <circle cx="120" cy="140" r="2" fill="#d9e5ff" opacity=".8"/>
+  </g>
+</svg>

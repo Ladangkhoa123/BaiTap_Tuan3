@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>Sản phẩm mới nhất</title>
+  <link rel="stylesheet" href="san-pham.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="#gioi-thieu" aria-label="Khoa Store - về đầu trang">
+        <span class="brand-mark">K</span>
+        <span>KHOA<span class="brand-accent">STORE</span></span>
+      </a>
+      <nav class="top-menu" aria-label="Menu chính">
+        <a href="#gioi-thieu">Trang chủ</a>
+        <a href="#dashboard">Tổng quan</a>
+        <a href="#ban-chay">Bán chạy</a>
+        <a href="#san-pham-moi">Sản phẩm mới</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-trigger" id="open-cart" type="button" aria-haspopup="dialog" aria-controls="cart-dialog">
+          Giỏ hàng <span class="cart-count" id="cart-count" aria-label="0 sản phẩm trong giỏ">0</span>
+        </button>
+        <a class="menu-contact" href="mailto:hello@example.com">Liên hệ <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+    <form class="cart-dialog-header" method="dialog">
+      <div>
+        <p class="dashboard-kicker">ĐƠN HÀNG CỦA BẠN</p>
+        <h2 id="cart-title">Giỏ hàng</h2>
+      </div>
+      <button class="icon-button" type="submit" value="close" aria-label="Đóng giỏ hàng">×</button>
+    </form>
+    <div class="cart-empty" id="cart-empty">
+      <span aria-hidden="true">🛍</span>
+      <p>Giỏ hàng đang trống.</p>
+      <a href="#san-pham-moi" id="continue-shopping">Khám phá sản phẩm</a>
+    </div>
+    <ul class="cart-items" id="cart-items" aria-label="Sản phẩm trong giỏ"></ul>
+    <div class="cart-summary" id="cart-summary" hidden>
+      <p><span>Tạm tính</span><strong id="cart-subtotal">0đ</strong></p>
+      <button class="intro-button checkout-trigger" id="checkout-trigger" type="button">Tiếp tục đặt hàng <span aria-hidden="true">→</span></button>
+      <p class="cart-demo-note">Bản demo: chưa kết nối thanh toán hoặc hệ thống nhận đơn.</p>
+      <form class="checkout-form" id="checkout-form" hidden>
+        <label for="customer-name">Tên người nhận</label>
+        <input id="customer-name" name="name" autocomplete="name" required>
+        <label for="customer-phone">Số điện thoại</label>
+        <input id="customer-phone" name="phone" type="tel" autocomplete="tel" required pattern="[0-9+() .-]{9,18}" title="Nhập số điện thoại hợp lệ">
+        <button class="intro-button" type="submit">Xác nhận demo</button>
+      </form>
+    </div>
+    <p class="cart-status" id="cart-status" role="status" aria-live="polite"></p>
+  </dialog>
+
+  <div class="portfolio-layout">
+    <aside class="portfolio-sidebar" aria-label="Danh mục cửa hàng">
+      <a class="portfolio-brand" href="#gioi-thieu">KHOA STORE</a>
+      <p class="sidebar-description">Khám phá thiết bị công nghệ nổi bật</p>
+      <nav aria-label="Điều hướng sản phẩm">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#ban-chay">Sản phẩm bán chạy</a>
+        <a href="#iphone-pro">iPhone 18 Pro</a>
+        <a href="#iphone-duo">iPhone Duo</a>
+        <a href="#apple-watch">Apple Watch</a>
+      </nav>
+    </aside>
+
+    <main class="page" id="portfolio-main">
+      <section class="store-intro" id="gioi-thieu" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="intro-kicker"><span></span> CÔNG NGHỆ CHÍNH HÃNG · TRẢI NGHIỆM TẬN TÂM</p>
+          <h1 id="intro-title">Công nghệ tốt,<br><span>cho cuộc sống tốt hơn.</span></h1>
+          <p class="intro-description">Khoa Store tuyển chọn những thiết bị công nghệ hiện đại, chính hãng và phù hợp với nhu cầu hằng ngày. Khám phá sản phẩm nổi bật, xem xu hướng mua sắm và tìm lựa chọn dành riêng cho bạn.</p>
+          <div class="intro-actions">
+            <a class="intro-button" href="#ban-chay">Khám phá sản phẩm <span aria-hidden="true">→</span></a>
+            <a class="intro-link" href="mailto:hello@example.com">Tư vấn miễn phí</a>
+          </div>
+          <div class="intro-trust">
+            <span><strong>100%</strong> chính hãng</span>
+            <span><strong>7 ngày</strong> đổi trả</span>
+            <span><strong>An tâm</strong> bảo hành</span>
+          </div>
+        </div>
+        <div class="intro-visual" aria-hidden="true">
+          <div class="intro-orbit intro-orbit--one"></div>
+          <div class="intro-orbit intro-orbit--two"></div>
+          <img src="images/iphone.svg" alt="">
+          <span class="intro-visual-label">TECH FOR EVERY DAY</span>
+          <span class="intro-visual-badge">NEW<br>COLLECTION</span>
+        </div>
+      </section>
+
+      <section class="shop-benefits" aria-label="Cam kết dịch vụ">
+        <article><span aria-hidden="true">✓</span><div><strong>Sản phẩm chính hãng</strong><p>Thông tin rõ ràng, nguồn gốc minh bạch.</p></div></article>
+        <article><span aria-hidden="true">↺</span><div><strong>Đổi trả thuận tiện</strong><p>Hỗ trợ tư vấn trước và sau khi mua.</p></div></article>
+        <article><span aria-hidden="true">♡</span><div><strong>Tư vấn tận tâm</strong><p>Chọn thiết bị phù hợp với nhu cầu của bạn.</p></div></article>
+      </section>
+
+      <section class="dashboard" id="dashboard" aria-labelledby="dashboard-title">
+        <div class="dashboard-heading">
+          <div>
+            <p class="dashboard-kicker">TỔNG QUAN CỬA HÀNG</p>
+            <h1 id="dashboard-title">Dashboard</h1>
+            <p class="dashboard-subtitle">Theo dõi nhanh tình hình kinh doanh của bạn.</p>
+          </div>
+          <span class="dashboard-period">7 ngày gần nhất</span>
+        </div>
+
+        <div class="dashboard-stats" aria-label="Chỉ số kinh doanh minh họa">
+          <article class="stat-card">
+            <p>Doanh thu</p>
+            <strong>128,5 triệu đ</strong>
+            <span class="stat-trend">↗ 12,8% so với tuần trước</span>
+          </article>
+          <article class="stat-card">
+            <p>Đơn hàng</p>
+            <strong>248</strong>
+            <span class="stat-trend">↗ 8,4% so với tuần trước</span>
+          </article>
+          <article class="stat-card">
+            <p>Khách hàng mới</p>
+            <strong>86</strong>
+            <span class="stat-trend">↗ 5,2% so với tuần trước</span>
+          </article>
+          <article class="stat-card">
+            <p>Sản phẩm đang bán</p>
+            <strong>32</strong>
+            <span class="stat-caption">Trong 5 danh mục</span>
+          </article>
+        </div>
+
+        <div class="dashboard-chart">
+          <div class="chart-heading">
+            <div>
+              <h2>Doanh thu theo ngày</h2>
+              <p>Dữ liệu doanh thu trong tuần</p>
+            </div>
+            <strong>128,5 triệu đ</strong>
+          </div>
+          <div class="chart-scroll">
+            <svg class="revenue-chart" viewBox="0 0 700 190" role="img" aria-labelledby="revenue-chart-title revenue-chart-description">
+              <title id="revenue-chart-title">Biểu đồ doanh thu tuần</title>
+              <desc id="revenue-chart-description">Doanh thu minh họa tăng dần từ thứ Hai đến Chủ Nhật.</desc>
+              <defs>
+                <linearGradient id="revenue-fill" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0" stop-color="#f56300" stop-opacity=".25"/>
+                  <stop offset="1" stop-color="#f56300" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="chart-gridline" d="M44 25H682M44 65H682M44 105H682M44 145H682"/>
+              <path class="chart-area" d="M54 126L156 98L258 110L360 65L462 83L564 43L672 57V145H54Z"/>
+              <path class="chart-line" d="M54 126L156 98L258 110L360 65L462 83L564 43L672 57"/>
+              <g class="chart-points">
+                <circle cx="54" cy="126" r="4"/><circle cx="156" cy="98" r="4"/>
+                <circle cx="258" cy="110" r="4"/><circle cx="360" cy="65" r="4"/>
+                <circle cx="462" cy="83" r="4"/><circle cx="564" cy="43" r="4"/>
+                <circle cx="672" cy="57" r="4"/>
+              </g>
+              <g class="chart-labels">
+                <text x="54" y="174">T2</text><text x="156" y="174">T3</text>
+                <text x="258" y="174">T4</text><text x="360" y="174">T5</text>
+                <text x="462" y="174">T6</text><text x="564" y="174">T7</text>
+                <text x="672" y="174">CN</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <p class="dashboard-note">Số liệu dashboard mang tính minh họa.</p>
+      </section>
+
+      <section class="best-sellers" id="ban-chay" aria-labelledby="best-sellers-title">
+        <h1 class="section-title" id="best-sellers-title">Sản phẩm bán chạy</h1>
+        <div class="best-seller-grid">
+          <article class="best-seller-card best-seller-card--phone" tabindex="0" data-product-id="iphone-16-pro" data-category="phone" data-price="28990000" aria-label="iPhone 16 Pro, di chuột hoặc nhấn Tab để xem thông tin liên hệ">
+            <div class="best-seller-flipper">
+              <div class="best-seller-face best-seller-front">
+                <div class="best-seller-art" aria-hidden="true">
+                  <img src="images/iphone.svg" alt="" loading="lazy">
+                </div>
+                <p class="best-seller-label">BÁN CHẠY</p>
+                <h2>iPhone 16 Pro</h2>
+                <p class="best-seller-price">Từ 28.990.000đ</p>
+              </div>
+              <div class="best-seller-face best-seller-back">
+                <p class="best-seller-label">LIÊN HỆ ĐẶT HÀNG</p>
+                <h2>iPhone 16 Pro</h2>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+                <a href="tel:+84900000000">0900 000 000</a>
+                <p>TP. Hồ Chí Minh</p>
+                <button class="add-to-cart" type="button" data-add-to-cart>Thêm vào giỏ</button>
+              </div>
+            </div>
+          </article>
+          <article class="best-seller-card best-seller-card--laptop" tabindex="0" data-product-id="macbook-air-13" data-category="laptop" data-price="24990000" aria-label="MacBook Air 13 inch, di chuột hoặc nhấn Tab để xem thông tin liên hệ">
+            <div class="best-seller-flipper">
+              <div class="best-seller-face best-seller-front">
+                <div class="best-seller-art" aria-hidden="true">
+                  <img src="images/macbook.svg" alt="" loading="lazy">
+                </div>
+                <p class="best-seller-label">BÁN CHẠY</p>
+                <h2>MacBook Air 13″</h2>
+                <p class="best-seller-price">Từ 24.990.000đ</p>
+              </div>
+              <div class="best-seller-face best-seller-back">
+                <p class="best-seller-label">LIÊN HỆ ĐẶT HÀNG</p>
+                <h2>MacBook Air 13″</h2>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+                <a href="tel:+84900000000">0900 000 000</a>
+                <p>TP. Hồ Chí Minh</p>
+                <button class="add-to-cart" type="button" data-add-to-cart>Thêm vào giỏ</button>
+              </div>
+            </div>
+          </article>
+          <article class="best-seller-card best-seller-card--tablet" tabindex="0" data-product-id="ipad-air-11" data-category="tablet" data-price="16990000" aria-label="iPad Air 11 inch, di chuột hoặc nhấn Tab để xem thông tin liên hệ">
+            <div class="best-seller-flipper">
+              <div class="best-seller-face best-seller-front">
+                <div class="best-seller-art" aria-hidden="true">
+                  <img src="images/ipad.svg" alt="" loading="lazy">
+                </div>
+                <p class="best-seller-label">BÁN CHẠY</p>
+                <h2>iPad Air 11″</h2>
+                <p class="best-seller-price">Từ 16.990.000đ</p>
+              </div>
+              <div class="best-seller-face best-seller-back">
+                <p class="best-seller-label">LIÊN HỆ ĐẶT HÀNG</p>
+                <h2>iPad Air 11″</h2>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+                <a href="tel:+84900000000">0900 000 000</a>
+                <p>TP. Hồ Chí Minh</p>
+                <button class="add-to-cart" type="button" data-add-to-cart>Thêm vào giỏ</button>
+              </div>
+            </div>
+          </article>
+          <article class="best-seller-card best-seller-card--watch" tabindex="0" data-product-id="apple-watch-10" data-category="watch" data-price="10990000" aria-label="Apple Watch Series 10, di chuột hoặc nhấn Tab để xem thông tin liên hệ">
+            <div class="best-seller-flipper">
+              <div class="best-seller-face best-seller-front">
+                <div class="best-seller-art" aria-hidden="true">
+                  <img src="images/watch.svg" alt="" loading="lazy">
+                </div>
+                <p class="best-seller-label">BÁN CHẠY</p>
+                <h2>Apple Watch Series 10</h2>
+                <p class="best-seller-price">Từ 10.990.000đ</p>
+              </div>
+              <div class="best-seller-face best-seller-back">
+                <p class="best-seller-label">LIÊN HỆ ĐẶT HÀNG</p>
+                <h2>Apple Watch Series 10</h2>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+                <a href="tel:+84900000000">0900 000 000</a>
+                <p>TP. Hồ Chí Minh</p>
+                <button class="add-to-cart" type="button" data-add-to-cart>Thêm vào giỏ</button>
+              </div>
+            </div>
+          </article>
+          <article class="best-seller-card best-seller-card--audio" tabindex="0" data-product-id="airpods-pro-2" data-category="audio" data-price="5990000" aria-label="AirPods Pro 2, di chuột hoặc nhấn Tab để xem thông tin liên hệ">
+            <div class="best-seller-flipper">
+              <div class="best-seller-face best-seller-front">
+                <div class="best-seller-art" aria-hidden="true">
+                  <img src="images/airpods.svg" alt="" loading="lazy">
+                </div>
+                <p class="best-seller-label">BÁN CHẠY</p>
+                <h2>AirPods Pro 2</h2>
+                <p class="best-seller-price">Từ 5.990.000đ</p>
+              </div>
+              <div class="best-seller-face best-seller-back">
+                <p class="best-seller-label">LIÊN HỆ ĐẶT HÀNG</p>
+                <h2>AirPods Pro 2</h2>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+                <a href="tel:+84900000000">0900 000 000</a>
+                <p>TP. Hồ Chí Minh</p>
+                <button class="add-to-cart" type="button" data-add-to-cart>Thêm vào giỏ</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="best-seller-note">Sản phẩm và giá trong mục này là thông tin minh họa.</p>
+      </section>
+
+      <h2 class="page-title">Sản phẩm mới nhất. <span>Hãy xem có gì mới.</span></h2>
+
+      <section class="catalog-tools" aria-label="Tìm kiếm và lọc sản phẩm">
+        <label class="search-field">
+          <span class="visually-hidden">Tìm kiếm sản phẩm</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="product-search" type="search" placeholder="Tìm iPhone, Apple Watch..." autocomplete="off">
+        </label>
+        <label class="filter-field">
+          <span class="visually-hidden">Lọc theo danh mục</span>
+          <select id="category-filter">
+            <option value="all">Tất cả danh mục</option>
+            <option value="phone">Điện thoại</option>
+            <option value="watch">Đồng hồ</option>
+            <option value="laptop">Laptop</option>
+            <option value="tablet">Máy tính bảng</option>
+            <option value="audio">Tai nghe</option>
+          </select>
+        </label>
+        <label class="filter-field">
+          <span class="visually-hidden">Sắp xếp sản phẩm</span>
+          <select id="sort-products">
+            <option value="default">Sắp xếp mặc định</option>
+            <option value="price-asc">Giá: thấp đến cao</option>
+            <option value="price-desc">Giá: cao đến thấp</option>
+          </select>
+        </label>
+      </section>
+      <p class="catalog-result" id="catalog-result" aria-live="polite"></p>
+
+      <section class="product-grid" id="san-pham-moi" aria-label="Sản phẩm mới nhất">
+        <article class="product-card product-card--dark" id="iphone-pro" data-product-id="iphone-18-pro" data-category="phone" data-price="38999000">
+          <div class="product-copy">
+            <p class="eyebrow">MỚI</p>
+            <h2>iPhone 18 Pro</h2>
+            <p class="description">Hiệu năng và camera cực đỉnh trên iPhone cùng thời lượng pin vượt trội.</p>
+            <p class="price">Từ 38.999.000đ</p>
+            <button class="add-to-cart" type="button" data-add-to-cart>Thêm vào giỏ</button>
+          </div>
+          <div class="product-art product-art--camera" role="img" aria-label="Minh họa mặt lưng điện thoại màu titan với cụm camera ba ống kính">
+            <div class="camera-island">
+              <span class="camera-lens camera-lens--one"></span>
+              <span class="camera-lens camera-lens--two"></span>
+              <span class="camera-lens camera-lens--three"></span>
+              <span class="camera-flash"></span>
+              <span class="camera-sensor"></span>
+            </div>
+            <div class="phone-edge"></div>
+          </div>
+        </article>
+
+        <article class="product-card product-card--light" id="iphone-duo" data-product-id="iphone-duo" data-category="phone" data-price="64999000">
+          <div class="product-copy">
+            <p class="eyebrow">ĐẶT TRƯỚC TỪ NGÀY 16 THÁNG 10</p>
+            <h2>iPhone Duo</h2>
+            <p class="description">Xin chào, xin chào.</p>
+            <p class="price">Từ 64.999.000đ</p>
+            <button class="add-to-cart" type="button" data-add-to-cart>Thêm vào giỏ</button>
+          </div>
+          <div class="product-art product-art--phone" role="img" aria-label="Minh họa điện thoại màn hình màu sắc">
+            <div class="hand"></div>
+            <div class="phone">
+              <div class="phone-screen">
+                <span class="screen-widget">54°<small>Sunny</small></span>
+                <span class="app app--map">⌖</span>
+                <span class="app app--video">▶</span>
+                <span class="app app--photo">✿</span>
+                <span class="app app--music">♫</span>
+                <span class="app app--mail">✉</span>
+                <span class="app app--notes">▤</span>
+                <span class="app app--weather">☼</span>
+                <span class="app app--health">♥</span>
+                <span class="app app--settings">⚙</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card product-card--dark" id="apple-watch" data-product-id="apple-watch-12" data-category="watch" data-price="11499000">
+          <div class="product-copy">
+            <p class="eyebrow">MỚI</p>
+            <h2>Apple Watch Series 12</h2>
+            <p class="description">Cảm biến nhịp tim tiên tiến nhất của Apple Watch. Từ 11.499.000đ hoặc 468.000đ/tháng trong 24 tháng.</p>
+            <button class="add-to-cart" type="button" data-add-to-cart>Thêm vào giỏ</button>
+          </div>
+          <div class="product-art product-art--watches" role="img" aria-label="Minh họa hai đồng hồ thông minh với màn hình sức khỏe">
+            <div class="watch watch--front">
+              <div class="watch-strap"></div>
+              <div class="watch-case">
+                <div class="watch-screen">
+                  <span class="watch-time">10:09</span>
+                  <span class="heart">♥<small>62<br>BPM</small></span>
+                  <span class="heart-rate"></span>
+                </div>
+              </div>
+            </div>
+            <div class="watch watch--back">
+              <div class="watch-strap"></div>
+              <div class="watch-case">
+                <div class="radar"><span></span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <footer class="site-footer" id="lien-he">
+    <div class="site-footer-inner">
+      <div>
+        <a class="site-brand footer-brand" href="#gioi-thieu"><span class="brand-mark">K</span><span>KHOA<span class="brand-accent">STORE</span></span></a>
+        <p>Cùng bạn chọn công nghệ phù hợp cho mỗi ngày.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#san-pham-moi">Sản phẩm</a>
+        <a href="#ban-chay">Bán chạy</a>
+        <a href="mailto:hello@example.com">hello@example.com</a>
+        <a href="tel:+84900000000">0900 000 000</a>
+      </div>
+      <p class="footer-disclaimer">Website minh họa giao diện. Giá, dashboard và thông tin liên hệ là dữ liệu mẫu; chưa có thanh toán hoặc xử lý đơn hàng thật.</p>
+      <p class="copyright">© 2026 Khoa Store · Giao diện cửa hàng demo</p>
+    </div>
+  </footer>
+  <div class="toast" id="shop-toast" role="status" aria-live="polite"></div>
+  <script src="san-pham.js" defer></script>
+</body>
+</html>

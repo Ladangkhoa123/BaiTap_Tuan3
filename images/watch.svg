@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" role="img" aria-labelledby="title">
+  <title id="title">Đồng hồ thông minh với mặt đồng hồ phát sáng</title>
+  <defs>
+    <linearGradient id="band" x1="0" x2="1">
+      <stop stop-color="#262d3a"/>
+      <stop offset=".5" stop-color="#929aaa"/>
+      <stop offset="1" stop-color="#272d39"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#f0f2f6"/>
+      <stop offset=".45" stop-color="#777f8d"/>
+      <stop offset="1" stop-color="#252a35"/>
+    </linearGradient>
+    <radialGradient id="face">
+      <stop stop-color="#1a556c"/>
+      <stop offset=".6" stop-color="#10182c"/>
+      <stop offset="1" stop-color="#060a13"/>
+    </radialGradient>
+    <filter id="shadow" x="-.5" y="-.4" width="2" height="1.8">
+      <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#000" flood-opacity=".65"/>
+    </filter>
+  </defs>
+  <ellipse cx="120" cy="151" rx="57" ry="8" fill="#02040a" opacity=".7"/>
+  <g filter="url(#shadow)">
+    <path d="M91 8h58l-8 48H99zM99 119h42l8 43H91z" fill="url(#band)" stroke="#bdc3ce" stroke-width="2"/>
+    <rect x="70" y="39" width="100" height="92" rx="29" fill="url(#frame)" stroke="#edf0f5" stroke-width="3"/>
+    <rect x="78" y="47" width="84" height="76" rx="23" fill="url(#face)"/>
+    <circle cx="120" cy="85" r="25" fill="none" stroke="#50e5cf" stroke-width="2" opacity=".8"/>
+    <circle cx="120" cy="85" r="16" fill="none" stroke="#53b8ff" stroke-width="2" opacity=".85"/>
+    <path d="M120 85V67M120 85l15 8" stroke="#e3ffff" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="120" cy="85" r="3" fill="#f1ffff"/>
+    <rect x="168" y="73" width="7" height="22" rx="3.5" fill="#9aa2af"/>
+  </g>
+</svg>
