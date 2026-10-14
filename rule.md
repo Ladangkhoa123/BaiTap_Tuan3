@@ -1,0 +1,1 @@
+Tất cả các function của Javascript phải coment giải thích

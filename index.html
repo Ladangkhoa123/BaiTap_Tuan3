@@ -3,103 +3,462 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Flexbox và CSS Grid</title>
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Phép tính &amp; so sánh</title>
   <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #172033;
+      background: #f4f7fb;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
     * {
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
+      min-width: 320px;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 20px;
+      margin: 0;
+      padding: 48px 20px;
+      background:
+        radial-gradient(ellipse at 10% 0%, rgb(93 113 255 / 10%), transparent 35%),
+        radial-gradient(ellipse at 100% 100%, rgb(35 190 164 / 9%), transparent 35%),
+        #f4f7fb;
     }
 
-    .content {
-      width: min(100%, 960px);
+    .app {
+      width: min(100%, 760px);
+      margin: 0 auto;
+    }
+
+    .intro {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 12px;
+      color: #5968db;
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #5968db;
+      content: "";
     }
 
     h1 {
-      margin: 0 0 12px;
-      text-align: center;
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 3rem);
+      letter-spacing: -0.055em;
+      line-height: 1.12;
     }
 
-    .description {
-      margin: 0 0 32px;
-      text-align: center;
-      line-height: 1.6;
+    .subtitle {
+      max-width: 510px;
+      margin: 14px auto 0;
+      color: #657087;
+      font-size: 1rem;
+      line-height: 1.65;
     }
 
-    .grid {
+    .panel {
+      overflow: hidden;
+      border: 1px solid #e7ebf3;
+      border-radius: 24px;
+      background: rgb(255 255 255 / 92%);
+      box-shadow: 0 24px 70px rgb(34 48 82 / 10%);
+    }
+
+    .input-area {
+      padding: clamp(22px, 5vw, 36px);
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      color: #354057;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .number-fields {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+      align-items: end;
+      gap: 14px;
     }
 
-    .card {
-      min-height: 160px;
+    .field label {
+      display: block;
+      margin-bottom: 9px;
+      color: #566179;
+      font-size: 0.85rem;
+      font-weight: 650;
+    }
+
+    .field input {
+      width: 100%;
+      min-height: 58px;
+      padding: 0 16px;
+      border: 1px solid #dce2ed;
+      border-radius: 13px;
+      outline: none;
+      background: #fbfcfe;
+      color: #172033;
+      font: inherit;
+      font-size: 1.15rem;
+      font-weight: 650;
+      transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+    }
+
+    .field input:focus {
+      border-color: #6976e8;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgb(105 118 232 / 13%);
+    }
+
+    .operator {
+      display: grid;
+      width: 44px;
+      height: 58px;
+      place-items: center;
+      color: #8790a4;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    button {
+      min-height: 48px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.94rem;
+      font-weight: 700;
+      transition: transform 150ms ease, background 150ms ease, box-shadow 150ms ease;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #aab1ff;
+      outline-offset: 3px;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .calculate {
+      flex: 1;
+      background: #5968db;
+      box-shadow: 0 8px 18px rgb(89 104 219 / 22%);
+      color: #fff;
+    }
+
+    .calculate:hover {
+      background: #4857c9;
+    }
+
+    .clear {
+      border: 1px solid #e1e5ee;
+      background: #fff;
+      color: #626c80;
+    }
+
+    .clear:hover {
+      background: #f7f8fb;
+    }
+
+    .results {
+      padding: clamp(22px, 5vw, 32px);
+      border-top: 1px solid #edf0f5;
+      background: #fafbfe;
+    }
+
+    .results-heading {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 24px;
-      border-radius: 10px;
-      text-align: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
-    .card h2 {
-      margin: 0 0 8px;
-      font-size: 1.2rem;
-    }
-
-    .card p {
+    .results-heading .section-title {
       margin: 0;
-      line-height: 1.5;
     }
 
-    @media (max-width: 640px) {
-      .grid {
+    .status {
+      margin: 0;
+      color: #81899a;
+      font-size: 0.78rem;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .result-card {
+      min-height: 86px;
+      padding: 15px 17px;
+      border: 1px solid #e9edf4;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .result-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #7a8498;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .result-value {
+      display: block;
+      overflow-wrap: anywhere;
+      color: #273149;
+      font-size: 1.08rem;
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .result-value.empty {
+      color: #a3aabb;
+      font-weight: 500;
+    }
+
+    .comparison {
+      grid-column: 1 / -1;
+      border-color: #dfe4ff;
+      background: #f5f6ff;
+    }
+
+    .comparison .result-value {
+      color: #4d5bc5;
+    }
+
+    .footnote {
+      margin: 16px 0 0;
+      color: #8790a1;
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 32px 14px;
+      }
+
+      .number-fields {
+        grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .operator {
+        width: 30px;
+      }
+
+      .field input {
+        padding: 0 12px;
+      }
+
+      .result-grid {
         grid-template-columns: 1fr;
+      }
+
+      .comparison {
+        grid-column: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
-  <link rel="stylesheet" href="colors.css">
 </head>
 <body>
-  <main class="container">
-    <section class="content" aria-labelledby="page-title">
-      <h1 id="page-title">Flexbox và CSS Grid</h1>
-      <p class="description">
-        Flexbox căn giữa nội dung trên trang; CSS Grid sắp xếp các thẻ thành ba cột.
-      </p>
-      <div class="grid">
-        <article class="card">
-          <div>
-            <h2>Thẻ thứ nhất</h2>
-            <p>Nội dung được căn giữa bằng Flexbox.</p>
+  <main class="app">
+    <header class="intro">
+      <p class="eyebrow">JavaScript mini lab</p>
+      <h1>Phép tính &amp; so sánh</h1>
+      <p class="subtitle">Nhập hai số để khám phá các phép toán cơ bản và xem mối quan hệ giữa chúng.</p>
+    </header>
+
+    <section class="panel" aria-label="Máy tính số học">
+      <form id="calculator-form" novalidate>
+        <div class="input-area">
+          <h2 class="section-title">Nhập giá trị</h2>
+          <div class="number-fields">
+            <div class="field">
+              <label for="value-a">Giá trị a</label>
+              <input id="value-a" name="a" type="number" step="any" placeholder="Ví dụ: 12" required>
+            </div>
+            <span class="operator" aria-hidden="true">+</span>
+            <div class="field">
+              <label for="value-b">Giá trị b</label>
+              <input id="value-b" name="b" type="number" step="any" placeholder="Ví dụ: 5" required>
+            </div>
           </div>
-        </article>
-        <article class="card">
-          <div>
-            <h2>Thẻ thứ hai</h2>
-            <p>Các cột có chiều rộng bằng nhau.</p>
+          <div class="actions">
+            <button class="calculate" type="submit">Tính kết quả</button>
+            <button class="clear" id="clear-button" type="button">Xóa</button>
           </div>
-        </article>
-        <article class="card">
-          <div>
-            <h2>Thẻ thứ ba</h2>
-            <p>Lưới có khoảng cách 20px và góc bo 10px.</p>
-          </div>
-        </article>
-      </div>
+        </div>
+      </form>
+
+      <section class="results" aria-labelledby="results-title" aria-live="polite">
+        <div class="results-heading">
+          <h2 class="section-title" id="results-title">Kết quả</h2>
+          <p class="status" id="status">Đang chờ dữ liệu</p>
+        </div>
+        <div class="result-grid">
+          <article class="result-card">
+            <span class="result-label">Cộng · a + b</span>
+            <output class="result-value empty" id="addition">—</output>
+          </article>
+          <article class="result-card">
+            <span class="result-label">Trừ · a − b</span>
+            <output class="result-value empty" id="subtraction">—</output>
+          </article>
+          <article class="result-card">
+            <span class="result-label">Nhân · a × b</span>
+            <output class="result-value empty" id="multiplication">—</output>
+          </article>
+          <article class="result-card">
+            <span class="result-label">Chia · a ÷ b</span>
+            <output class="result-value empty" id="division">—</output>
+          </article>
+          <article class="result-card">
+            <span class="result-label">Chia lấy dư · a % b</span>
+            <output class="result-value empty" id="remainder">—</output>
+          </article>
+          <article class="result-card comparison">
+            <span class="result-label">So sánh</span>
+            <output class="result-value empty" id="comparison">—</output>
+          </article>
+        </div>
+        <p class="footnote">Kết quả phép chia lấy dư và phép chia sẽ được thông báo riêng khi b bằng 0.</p>
+      </section>
     </section>
   </main>
+
+  <script>
+    // Lấy các phần tử trên trang để đọc dữ liệu và cập nhật kết quả.
+    const form = document.querySelector("#calculator-form");
+    const inputA = document.querySelector("#value-a");
+    const inputB = document.querySelector("#value-b");
+    const status = document.querySelector("#status");
+    const output = {
+      addition: document.querySelector("#addition"),
+      subtraction: document.querySelector("#subtraction"),
+      multiplication: document.querySelector("#multiplication"),
+      division: document.querySelector("#division"),
+      remainder: document.querySelector("#remainder"),
+      comparison: document.querySelector("#comparison")
+    };
+
+    // Định dạng số theo quy ước tiếng Việt và giới hạn tối đa 10 chữ số thập phân.
+    const numberFormat = new Intl.NumberFormat("vi-VN", {
+      maximumFractionDigits: 10
+    });
+
+    // Chuyển số thành chuỗi dễ đọc; báo riêng nếu kết quả quá lớn hoặc không hữu hạn.
+    function formatResult(value) {
+      return Number.isFinite(value) ? numberFormat.format(value) : "Kết quả vượt giới hạn";
+    }
+
+    // Hiển thị một giá trị trong ô kết quả và bỏ kiểu chữ mờ dành cho trạng thái trống.
+    function setResult(element, value) {
+      element.textContent = value;
+      element.classList.remove("empty");
+    }
+
+    // Đưa các ô kết quả về trạng thái ban đầu và cập nhật thông báo trạng thái.
+    function clearResults() {
+      Object.values(output).forEach((element) => {
+        element.textContent = "—";
+        element.classList.add("empty");
+      });
+      status.textContent = "Đang chờ dữ liệu";
+    }
+
+    // Xử lý khi gửi biểu mẫu: kiểm tra dữ liệu, tính toán và hiển thị các kết quả.
+    form.addEventListener("submit", (event) => {
+      // Ngăn trình duyệt tải lại trang khi gửi biểu mẫu.
+      event.preventDefault();
+
+      // Kiểm tra các ô bắt buộc; nếu thiếu dữ liệu thì dừng và báo cho người dùng.
+      if (!form.reportValidity()) {
+        status.textContent = "Vui lòng nhập đủ hai giá trị";
+        return;
+      }
+
+      // valueAsNumber đọc nội dung ô nhập trực tiếp dưới dạng số.
+      const a = inputA.valueAsNumber;
+      const b = inputB.valueAsNumber;
+
+      // Chặn các giá trị không phải số hữu hạn trước khi thực hiện phép tính.
+      if (!Number.isFinite(a) || !Number.isFinite(b)) {
+        status.textContent = "Giá trị nhập vào không hợp lệ";
+        return;
+      }
+
+      // Tính và hiển thị các phép toán số học cơ bản.
+      setResult(output.addition, formatResult(a + b));
+      setResult(output.subtraction, formatResult(a - b));
+      setResult(output.multiplication, formatResult(a * b));
+
+      // Tránh phép chia và phép chia lấy dư cho 0.
+      setResult(output.division, b === 0 ? "Không thể chia cho 0" : formatResult(a / b));
+      setResult(output.remainder, b === 0 ? "Không thể chia cho 0" : formatResult(a % b));
+
+      // So sánh hai số và hiển thị quan hệ giữa a và b.
+      if (a === b) {
+        setResult(output.comparison, "a bằng b");
+      } else if (a > b) {
+        setResult(output.comparison, "a lớn hơn b");
+      } else {
+        setResult(output.comparison, "a nhỏ hơn b");
+      }
+
+      status.textContent = "Đã tính xong";
+    });
+
+    // Xử lý nút Xóa: đặt lại biểu mẫu, xóa kết quả và đưa con trỏ về ô a.
+    document.querySelector("#clear-button").addEventListener("click", () => {
+      form.reset();
+      clearResults();
+      inputA.focus();
+    });
+  </script>
 </body>
 </html>
